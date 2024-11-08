@@ -10,7 +10,7 @@
 
 ![tf](img/tf-ver.png)
 
-1. Для установки зависимостей скопируем в профиль пользователя файйл `.terraformrc` и выполним команду ``terraform init``:
+1. Для установки зависимостей скопируем в профиль пользователя файл `.terraformrc` и выполним команду ``terraform init``:
 
 ![tf](img/tf-init.png)
 
@@ -126,4 +126,5 @@ resource "docker_container" "nginx" {
 как раз и отвечает за то, удаляются ли образы при выполнении команды `destroy`.
 
 Результирующий файл [main.tf](src/main.tf).
+
 Файл [.tfstate](src/terraform.tfstate).
