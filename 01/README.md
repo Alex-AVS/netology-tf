@@ -1,4 +1,4 @@
-# Введение в Terraform
+# Основы Terraform. Yandex Cloud
 
 Работы будем выполнять в ВМ Ubuntu 22.04 LTS.
 
