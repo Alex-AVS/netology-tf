@@ -16,7 +16,7 @@ module "vpc-net" {
 }
 
 module "example-vm" {
-  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=4d05fab828b1fcae16556a4d167134efca2fccf2"
   for_each = toset(var.projects)
 
   env_name       = var.vms_common_options.env_name

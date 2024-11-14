@@ -33,12 +33,6 @@ variable "vpc_name" {
 
 ###common vars
 
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "your_ssh_ed25519_key"
-  description = "ssh-keygen -t ed25519"
-}
-
 variable "vms_ssh_user" {
   type        = string
   default     = "ubuntu"
@@ -77,46 +71,9 @@ variable "vms_common_options" {
   description = "Parameters common to all VMs"
 }
 
-###example vm_web var
-variable "vm_web_name" {
-  type        = string
-  default     = "netology-develop-platform-web"
-  description = "example vm_web_ prefix"
-}
-
-###example vm_db var
-variable "vm_db_name" {
-  type        = string
-  default     = "netology-develop-platform-db"
-  description = "example vm_db_ prefix"
-}
-
 variable "projects" {
   type = list(string)
   default = ["marketing", "analytics"]
   description = "Project names to create VMs for."
 }
 
-variable "test_ip" {
-  type = string
-  default = "192.168.0.1"
-  #default = "1920.1680.0.1"
-  description="ip-адрес"
-  validation {
-    condition = can(cidrnetmask("${var.test_ip}/32"))
-    error_message = "Invalid IP address provided."
-  }
-}
-
-variable "test_cidr_list" {
-  type = list(string)
-  default =  ["192.168.0.1", "1.1.1.1", "127.0.0.1"]
-  #default = ["192.168.0.1", "1.1.1.1", "1270.0.0.1"]
-  description="список ip-адресов"
-  validation {
-    condition = alltrue([
-      for addr in var.test_cidr_list: can(cidrnetmask("${addr}/32"))
-    ])
-    error_message = "Invalid IP set provided."
-  }
-}
